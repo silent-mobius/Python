@@ -62,7 +62,7 @@ DISTROS = {
 	}
 packages = ['lightdm','mate-desktop-environment-extras', 'firmware-realtek', 'firmware-linux', 'firmware-linux-free',
 'firmware-linux-nonfree', 'vlc', 'gparted', 'abiword', 'transmission', 'guake', 'mixxx', 'culmus', 'xfonts-efont-unicode',
-'xfonts-efont-unicode-ib', 'xfonts-intl-european', 'msttcorefonts', 'sqlite', 'sqlite3', 'mysql-client', 'mysql-server',
+'xfonts-efont-unicode-ib', 'xfonts-intl-european', 'ttf-mscorefonts-installer', 'sqlite', 'sqlite3', 'mysql-client', 'mysql-server',
 'postgresql', 'apache2', 'nginx-full', 'nfs-common', 'samba-common', 'redis-server', 'sysv-rc-conf', 'wget', 'curl', 'nmap',
 'zenmap', 'aircrack-ng', 'dsniff', 'ndiff', 'nbtscan', 'wireshark', 'tshark', 'tcpdump', 'netcat', 'macchanger', 'python-scapy',
 'python-pip', 'python-networkx', 'python-netaddr', 'python-netifaces', 'python-netfilter', 'python-gnuplot', 'python-mako',
@@ -104,13 +104,40 @@ def bash(var):
 			return issue
 '''
 def edit_files():
-	if 
+	#TODO:
+	#		edit files : bash.bashrc, virc, vimrc, sysctl
 	 
 def pac_check(pkg):
-	cache = apt.Cache()
+	cache = apt.cache.Cache()
+	#cache.update()
 	
-	pack = cache[pkg]
-	if pack.is_installed:
+	pkg = cache[pkg]
+	if pkg.is_installed:
+		#print "{pkg} already installed"
 		pass
 	else:
-		
+		pkg.mark_install()
+		try:
+			cache.commit()
+		except Exception, arg :
+			print "error with %s" %pkg
+
+def exec_install():
+	for i in packages:
+		pac_check(i)
+
+
+
+
+def main():
+	if not os.getuid() = '0':
+	print "\n Get R00T\n"
+	exec_install;edit_files;
+
+
+
+
+
+
+if __name__ == "__main__":
+	main()
