@@ -1,7 +1,7 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 ###Lib import ////////////////////////////////////////////////////////////////////
-import sys
+import os,sys
 from netaddr import *
 import argparse
 import logging
@@ -40,12 +40,17 @@ def pktHandle(pkt):
 					 db.append(pkt.addr2)
 					 print "MAC : %s | Name : %s" %(pkt.addr2, pkt.info)
 
+def autoIfStart(iface):
+    if os.system('systemctl status NetworkManager.service') != 0:
+        os.system('systemctl stop NetworkManager.service')
+        os.sys
+
 
 ####
 #Main - _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _
 ####
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='PyRobe Help')
+    parser = argparse.ArgumentParser(description='PyProbe Help')
     parser.add_argument('interface', action="store", help="specify interface (ex. wlan0mon)", default=False)
     parser.add_argument("-l","--log", dest="log",action="store_true", help="print log file")
     args = parser.parse_args()
