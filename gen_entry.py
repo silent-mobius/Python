@@ -1,11 +1,17 @@
 #!/usr/bin/env python
 
+#########################################################
+#created by br0k3ngl255
+#Purpose: generating  template files for pelican system.
+#
+#########################################################
 
-###import libs
+
+###import libs ====================================================
 import sys
 from datetime import datetime
 
-##creating template to generate
+##creating template to generate ++++++++++++++++++++++++++++++++++++++
 TEMPLATE = """
 {title}
 {hashes}
@@ -20,7 +26,7 @@ TEMPLATE = """
 
 """
 
-### function to create template file in content folder
+### function to create template file in content folder  /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 def make_entry(title):
     today = datetime.today()
     slug = title.lower().strip().replace(' ', '-')
@@ -38,6 +44,9 @@ def make_entry(title):
         w.write(t)
     print("File created -> " + f_create)
 
+###
+#Main - _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _
+###
 
 if __name__ == '__main__':
 
