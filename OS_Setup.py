@@ -38,15 +38,16 @@ import argparse
 
 
 ##Vars::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+line = "\n====================================================================\n"
 var = platform.dist()
 REPO = var[0]
 USER = "mobius" ### place your user name here
 PASSWD = "1"         ### palce your passwd here
 REPONAME = var[0]
-KODENAME = 
+#KODENAME = var[1]
 ARCH = platform.machine()
 VERSION = var[1]
-INSTALL_MNGR =
+#INSTALL_MNGR =
 DISTROS = {
 		"Ubuntu" : "/etc/lsb-release",
 		"Debian" : "/etc/debian_version",
@@ -60,27 +61,18 @@ DISTROS = {
 		"YellowDog" : "/etc/yellowdog-release",
 		"SUN JDS" : "/etc/sun-release",
 	}
-packages = ['lightdm','mate-desktop-environment-extras', 'firmware-realtek', 'firmware-linux', 'firmware-linux-free',
-'firmware-linux-nonfree', 'vlc', 'gparted', 'abiword', 'transmission', 'guake', 'mixxx', 'culmus', 'xfonts-efont-unicode',
-'xfonts-efont-unicode-ib', 'xfonts-intl-european', 'ttf-mscorefonts-installer', 'sqlite', 'sqlite3', 'mysql-client', 'mysql-server',
-'postgresql', 'apache2', 'nginx-full', 'nfs-common', 'samba-common', 'redis-server', 'sysv-rc-conf', 'wget', 'curl', 'nmap',
-'zenmap', 'aircrack-ng', 'dsniff', 'ndiff', 'nbtscan', 'wireshark', 'tshark', 'tcpdump', 'netcat', 'macchanger', 'python-scapy',
-'python-pip', 'python-networkx', 'python-netaddr', 'python-netifaces', 'python-netfilter', 'python-gnuplot', 'python-mako',
-'python-radix', 'ipython', 'python-pycurl', 'python-lxml', 'python-libpcap', 'python-nmap', 'python-flask', 'python-scrapy',
-'libpoe-component-pcap-perl', 'libnet-pcap-perl', 'perl-modules', 'geany', 'build-essential', 'debhelper', 'cmake', 'bison',
-'flex', 'libgtk2.0-dev', 'libltdl3-dev', 'libncurses-dev', 'libusb-1.0-0-dev', 'git', 'git-core', 'libncurses5-dev',
-'libnet1-dev', 'libpcre3-dev', 'libssl-dev', 'libcurl4-openssl-dev', 'ghostscript', 'autoconf', 'python-software-properties',
-'debian-goodies', 'freeglut3-dev', 'libxmu-dev', 'libpcap-dev', 'libglib2.0', 'libxml2-dev', 'libpcap-dev', 'libtool',
-'rrdtool', 'autoconf', 'automake', 'autogen', 'redis-server', 'libsqlite3-dev', 'libhiredis-dev', 'libgeoip-dev',
-'debootstrap', 'qemu-user-static', 'device-tree-compiler', 'lzma', 'lzop', 'pixz', 'dkms', 'gnupg', 'flex', 'bison', 'gperf',
-'libesd0-dev', 'zip', 'curl', 'libncurses5-dev', 'zlib1g-dev', 'gcc-multilib', 'g++-multilib', 'libusb-1.0-0',
-'libusb-1.0-0-dev', 'fakeroot', 'kernel-package', 'zlib1g-dev', 'devscripts', 'pbuilder', 'dh-make', 'mingw32',
-'mingw32-binutils', 'guake']
+
+dev_packages=[ "python-scapy","python-pip","python-networkx","python-netaddr","python-netifaces","python-netfilter","apt-transport-https","ca-certificates","curl","gnupg2","software-properties-common", "python-gnuplot", "python-mako", "python-radix", "ipython", "ipython3", "python-pycurl", "python-lxml", "python-nmap", "python-flask", "python-scrapy", "perl-modules", "build-essential", "cmake", "bison", "flex", "git"  ]
+firmware_packages=[ "firmware-misc-nonfree",  "firmware-atheros", "firmware-brcm80211", "firmware-samsung", "firmware-realtek", "firmware-linux", "firmware-linux-free", "firmware-linux-nonfree", "intel-microcode", "firmware-zd1211" ]
+gui_packages=[ "lightdm", "mate-desktop", "mate-desktop-environment",  "mate-desktop-environment-extra", "mate-desktop-environment-extras", "culmus", "mixxx", "guake", "bash-completion", "plank", "atom", "sqlitebrowser", "pgadmin3", "vim-gtk", "codeblocks", "ninja-ide", "geany", "geany-plugins", "wireshark", "zenmap", "transmission", "gparted", "vlc", "abiword", "owncloud-client", "vim", "plank", "moka-icon-theme", "faba-icon-theme" ]
+lib_packages=[ "libpoe-component-pcap-perl", "libnet-pcap-perllibgtk2.0-dev", "libltdl3-dev", "libncurses-dev", "libusb-1.0-0-dev", "libncurses5-dev", "libbamf3-dev", "libdbusmenu-gtk3-dev", "libgdk-pixbuf2.0-dev", "libgee-dev", "libglib2.0-dev", "libgtk-3-dev", "libwnck-3-dev", "libx11-dev", "libgee-0.8-dev", "libnet1-dev", "libpcre3-dev", "libssl-dev", "libcurl4-openssl-dev", "libxmu-dev", "libpcap-dev", "libglib2.0", "libxml2-dev", "libpcap-dev", "libtool", "libsqlite3-dev", "libhiredis-dev", "libgeoip-dev", "libesd0-dev", "libncurses5-dev", "libusb-1.0-0", "libusb-1.0-0-dev", "libstdc++6-4.9-dbg"]
+
+
 pack_to_install = []
 ###Func/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 
-def bash(var):
-	os.system(var)
+#def bash(var):
+#	os.system(var)
 
 
 '''def distrofind(discreet):
@@ -103,17 +95,19 @@ def bash(var):
 			qname = issue.split(); issue = qname[0];
 			return issue
 '''
-def edit_files():
+#def edit_files():
 	#TODO:
 	#		edit files : bash.bashrc, virc, vimrc, sysctl
 	 
+
 def pac_check(pkg):
 	cache = apt.cache.Cache()
 	#cache.update()
+
 	
 	pkg = cache[pkg]
 	if pkg.is_installed:
-		#print "{pkg} already installed"
+		print "{pkg} already installed"
 		pass
 	else:
 		pkg.mark_install()
@@ -126,18 +120,16 @@ def exec_install():
 	for i in packages:
 		pac_check(i)
 
-
-
-
 def main():
-	if not os.getuid() = '0':
-	print "\n Get R00T\n"
-	exec_install;edit_files;
+	if  os.getuid() != 0:
+		print line
+		print "\t\tGet R00T"
+		print line
+		exec_install;
+		#edit_files;
 
-
-
-
-
-
+###
+#Main - _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _- _
+###
 if __name__ == "__main__":
 	main()
