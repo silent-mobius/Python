@@ -14,9 +14,9 @@ platform.python_build(),
 platform.python_compiler(),
 platform.python_version(),
 platform.system(),
-platform.uname(),
+#platform.uname(),
 platform.version(),
 ]
 
-for i in profile:
-	print i
+for p in profile:
+	print(p)
