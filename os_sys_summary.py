@@ -11,7 +11,7 @@ import sys
 import time
 import subprocess
 import platform
-import psutils
+#import psutils
 
 
 ########################################################################
@@ -20,12 +20,13 @@ try:
 except:
 	print("No NetIfaces module found")
 	print("Trying to install netifaces")
-	pip install netifaces
+	#pip3 install netifaces
 
 ########################################################################
 
 ##vars ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+#misc
+line="=================================================================="
 #messages
 error_msg = "Something went wrong - try running in debug mode"
 note_msg  = "Notification "
@@ -48,7 +49,7 @@ distro = platform.dist()
 host_name = platform.node()
 uname = platform.platform()
 sys = platform.system()
-net_ifaces = psutils.net_if_addrs()
+#net_ifaces = psutils.net_if_addrs()
 md_ver = os.getenv('MD_Ver')
 md_prod = os.getenv('MD_Prod')
 path = os.getenv('PATH')
@@ -59,10 +60,18 @@ sleep_time=2
 ##Funcs /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 
 def get_inet_info():
-	inet_list = subprocess.Popen(['ip','addr','show'],stdout = subprocess.PIPE,stderr = subprocess.PIPE)
-	inet_list_filter = subprocess.Popen(['grep','inet'],stdin = inet_list.stdout ,stdout = subprocess.PIPE)
-	data = inet_list_filter.communicate()
-	return data
+	data=[]
+	try:
+		import netifaces
+		for inet in netifaces.interfaces():
+			data.append(netifaces.ifaddresses(inet))
+		return data
+	except ModuleNotFoundError:
+		print("no module found --> trying to by pass:")
+		inet_list = subprocess.Popen(['ip','addr','show'],stdout = subprocess.PIPE,stderr = subprocess.PIPE)
+		inet_list_filter = subprocess.Popen(['grep','inet'],stdin = inet_list.stdout ,stdout = subprocess.PIPE)
+		data = inet_list_filter.communicate()
+		return data
 
 
 def write_to_csv():
@@ -87,9 +96,10 @@ if __name__ == "__main__":
 
 
 		print(line)
-		print()
+		print(net_msg)
 		print(line)
-
+		net=get_inet_info()
+		print(net)
 
 		print(line)
 		print()
