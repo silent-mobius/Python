@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 ########################################################################
-#
-#
-#
-#
+#created by : br0k3ngl255
+#date		: 12/12/2018
+#purpose	: get system info from all possible varieties of linux
+#version	: 0.2.38
 ########################################################################
 
 import os
