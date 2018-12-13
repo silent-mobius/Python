@@ -20,7 +20,7 @@ try:
 except:
 	print("No NetIfaces module found")
 	print("Trying to install netifaces")
-	#pip3 install netifaces
+	os.system('pip3 install netifaces')
 
 ########################################################################
 
@@ -60,11 +60,12 @@ sleep_time=2
 ##Funcs /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 
 def get_inet_info():
-	data=[]
+	data={}
 	try:
 		import netifaces
 		for inet in netifaces.interfaces():
-			data.append(netifaces.ifaddresses(inet))
+			data[inet]=netifaces.ifaddresses(inet)
+			#print(type(data))
 		return data
 	except ModuleNotFoundError:
 		print("no module found --> trying to by pass:")
@@ -93,13 +94,27 @@ if __name__ == "__main__":
 		print(line)
 		print(sys_msg)
 		print(line)
+		print(arch)
+		print(distro)
+		print(uname)
+		print(sys)
+		print(path)
 
 
 		print(line)
 		print(net_msg)
 		print(line)
-		net=get_inet_info()
-		print(net)
+		inets=get_inet_info()
+		#print(type(inets))
+		for inet,inet_val in inets.items():
+			#print(type(inet))
+			#print(inet,inet_val)
+			for i in inet_val.values():
+			#	print(i)
+			#	print(type(i))
+				for j in i:
+					#print(type(j))
+					print(inet,j.get('addr'))
 
 		print(line)
 		print()
