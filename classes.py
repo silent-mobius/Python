@@ -18,6 +18,7 @@ class Person():
 		
 	def sleep(self,time=0):
 		print(f' i will sleep {time} hours')
+		
 	def eat(self,kg=0):
 		if kg <= 0:
 			print(f'i\'ll strave to death with {kg} amount of food')
@@ -42,12 +43,11 @@ class Person():
 			print(f'i\'ll be back home in {tm} hours')
 		else:
 			print(f'not coming back home tonight')
+	
+	def __repr__(self):
+		print(f'this is Person class: {age}{name}{lname}')
+	
+	def __str__(self):
+		print(f'this is Person class: {age}{name}{lname}')
 
 
-Alex  = Person(age=33,name='Alex',lname='Schapelle',id_num=123)
-
-Alex.eat()
-Alex.work(tm=10)
-Alex.walk(dinst=15)
-Alex.sleep()
-Alex.wake()
