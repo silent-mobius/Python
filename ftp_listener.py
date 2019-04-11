@@ -5,7 +5,7 @@
 
 import ftplib
 
-FTP_SERVER_URL = 'ftp.kernel.org'
+FTP_SERVER_URL = 'test.rebex.net'
 
 def test_ftp_connection(path, username, email): #Open ftp connection
 	print(f'connecting to {path}')
