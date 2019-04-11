@@ -126,10 +126,9 @@ class Pinger(object):
 		
 	
 if __name__ == '__main__':
-parser = argparse.ArgumentParser(description='Python ping')
-parser.add_argument('--target-host', action="store", dest="target_
-host", required=True)
-given_args = parser.parse_args()
-target_host = given_args.target_host
-pinger = Pinger(target_host=target_host)
-pinger.ping()
+	parser = argparse.ArgumentParser(description='Python ping')
+	parser.add_argument('--target-host', action="store", dest="target_host", required=True)
+	given_args = parser.parse_args()
+	target_host = given_args.target_host
+	pinger = Pinger(target_host=target_host)
+	pinger.ping()
