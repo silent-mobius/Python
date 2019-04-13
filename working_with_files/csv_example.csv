@@ -1,0 +1,3 @@
+"srv_gateway","172.16.0.1","Panama"
+"srv_web","172.16.0.2","Beijing"
+"srv_db","172.16.0.3","Moscow" 
