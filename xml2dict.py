@@ -25,4 +25,4 @@ print(int_name)
 
 xml_dict['interface']['name']['address']['ip']='10.0.10.100'
 
-print(xmltodict.unparse(xml_dict))
+back_to_xml=xmltodict.unparse(xml_dict)

@@ -20,4 +20,5 @@ int_name = json_dict['interface']['name']
 
 json_dict['interface']['name']['address']['ip']='10.0.10.100'
 
-backtojson = json.dumps(json_dict)
+back_to_json = json.dumps(json_dict)
+
