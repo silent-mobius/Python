@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
 ########################################################################
-#
-#
-#
-#
+# created by: Pushtakio
+# purpose: practice OOP
+# date: unknow
+# version: unknow
 ########################################################################
 
 class Person():
