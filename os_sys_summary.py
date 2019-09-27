@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 ########################################################################
-#
-#
-#
-#
+# created by: Pushtakio
+# purpose: practice system data gathering
+# date: 10.02.2018
+# version: 2.5.16
 ########################################################################
 
 import os
