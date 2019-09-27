@@ -1,4 +1,11 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
+########################################################################
+# created by: Pushtakio
+# purpose: testing file
+# date: 10.02.2018
+# version: 1.0.1
+########################################################################
+
 
 import platform
 
