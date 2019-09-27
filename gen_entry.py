@@ -3,7 +3,8 @@
 #########################################################
 #created by br0k3ngl255
 #Purpose: generating  template files for pelican system.
-#
+#date: unknown
+#version: unknown
 #########################################################
 
 
