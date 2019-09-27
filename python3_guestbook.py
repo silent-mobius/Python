@@ -1,7 +1,14 @@
 #!/usr/bin/env python3
+####################################################################
 # Python Network Programming Cookbook -- Chapter - 5
 # This program is optimized for Python 3.6 or newer.
 # It may run on any other version with/without modifications
+########################################################################
+# created by: Pushtakio
+# purpose: practice cgi scripting
+# date: unknow
+# version: unknow
+########################################################################
 
 import os
 import cgi
