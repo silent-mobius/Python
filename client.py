@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 ########################################################################
 # created by: Pushtakio
-# purpose: network server clien practice
+# purpose: network server client practice
 # date: unknow
 # version: 2.7.91
 ########################################################################
