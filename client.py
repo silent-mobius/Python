@@ -1,4 +1,10 @@
 #!/usr/bin/env python
+########################################################################
+# created by: Pushtakio
+# purpose: network server clien practice
+# date: unknow
+# version: 2.7.91
+########################################################################
 
 import socket
 '''
