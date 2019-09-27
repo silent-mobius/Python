@@ -1,4 +1,11 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
+########################################################################
+# created by: Pushtakio
+# purpose: practice os fingerprinting copied  and iptimized for python3 from aggressive python book.
+# date: 01.03.2013
+# version: 4
+########################################################################
+
 import platform
 """
 Fingerprints the following Operating Systems:
