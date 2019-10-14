@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #############################################################
-#
-#
+# created by: O'Reilly (python for unix and linux administrators)
+# purpose:
 #
 #
 #############################################################
