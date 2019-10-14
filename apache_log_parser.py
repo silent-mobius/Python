@@ -1,11 +1,18 @@
 #!/usr/bin/env python3
 #############################################################
 # created by: O'Reilly (python for unix and linux administrators)
-# purpose:
-#
-#
+# edited by :  Pushtakio
+# purpose:parse apache web server log parser
+# date: 01.03.2007/ 14.10.2019
+# version: 1.4.2
 #############################################################
-
+"""
+USAGE:
+apache_log_parser.py some_log_file
+This script takes one command line argument: the name of a log file
+to parse. It then parses the log file and generates a report which
+associates remote hosts with number of bytes transferred to them.
+"""
 ##Lib import
 import os
 import sys
@@ -16,8 +23,6 @@ import sys
 
 
 ##Functions /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
-
-
 def dictify_logline(line):
     '''return a dictionary of the pertinent pieces of an apache combined log file
 Currently, the only fields we are interested in are remote host and bytes sent,
@@ -25,9 +30,9 @@ but we are putting status in there just for good measure.
 '''
     split_line = line.split()
     return { 'remote_host' : split_line[0],
-             'status': split_line[8]
-             'bytes_sent': split_line[9]
-            }
+             'status': split_line[8],
+             'bytes_sent': split_line[9],
+             }
 
 def gen_log_report(logfile):
     '''return a dictionary of format remote_host=>[list of bytes sent]
