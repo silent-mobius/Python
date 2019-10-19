@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 ###############################################################################
 # Python Network Programming Cookbook -- Chapter - 7
 # This program is optimized for Python 3.7.
@@ -6,7 +6,7 @@
 ###############################################################################
 # created by: Pushtakio
 # purpose: practice fabric scripting
-# date: 19./10/2019
+# date: 19/10/2019
 # version: 1.0.1
 ###############################################################################
 import os
