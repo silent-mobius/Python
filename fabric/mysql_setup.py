@@ -69,6 +69,4 @@ def empty_db():
     cmd = f"""(echo 'SET foreign_key_checks = 0;';
     (mysqldump -u{env.mysqluser} -p{env.mysqlpassword} --add-drop-table --no-data {db_name} |grep ^DROP);
     echo 'SET foreign_key_checks = 1;') | mysql -u{env.mysqluser} -p{env.mysqlpassword} -b {db_name}"""
-
-
     run(cmd)
