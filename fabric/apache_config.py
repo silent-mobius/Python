@@ -28,7 +28,7 @@ except ModuleNotFoundError:
 
 
 
-WWW_DOC_ROOT = "/data/apache/test/"
+WWW_DOC_ROOT = "/data/apache/test/" # needs fixing !!!
 WWW_USER = "apache2"
 WWW_GROUP = "apache2"
 APACHE_SITES_PATH = "/var/www/html"
