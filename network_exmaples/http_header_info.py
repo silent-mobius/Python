@@ -18,7 +18,7 @@ s.connect((trgt,80))
 req = 'HEAD / HTTP/1.1\r\nHost: '+ trgt +'\r\n\r\n'
 
 print('Sending: ',req)
-s.send(req)
+s.sendall(bytes(req))
 
 print('Recieved: ',s.recv(1024))
 

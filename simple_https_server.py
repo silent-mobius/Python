@@ -12,7 +12,7 @@
 ########################################################################
 import socket
 import os
-from SocketServer
+from SocketServer import ssl
 import BaseServer
 from BaseHTTPServer import HTTPServer
 from SimpleHTTPServer import SimpleHTTPRequestHandler
