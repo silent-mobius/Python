@@ -41,14 +41,15 @@ def deco(msg_string):
 #####
 
 if __name__ == "__main__":
-    if sys.argv[1] == ' ':
+    if sys.argv[1:] == '':
         file_name = input("Please provide file name")
         current_dir = os.getcwd()
         if os.path.exists(f'{current_dir/file_name}'):
             deco(msg_exists)
         else:
-            with open('{current_dir/file_name}','x') as f:
+            with open('{current_dir/file_name}', 'x') as f:
                 f.write(string_data)
+            os.chmod(f'{current_dir/file_name}', 0o775)
 
 
         
