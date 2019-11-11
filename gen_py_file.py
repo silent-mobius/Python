@@ -50,7 +50,7 @@ if __name__ == "__main__":
             with open('{current_dir/file_name}','x') as f:
                 f.write(string_data)
 
-                
+
         
     
 
