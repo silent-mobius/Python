@@ -44,8 +44,9 @@ def deco(var):
 
 if __name__ == "__main__":
     file_name = sys.argv[1]
-    print(file_name)
-    file_name = input("Please provide file name")
+    print(len(file_name))
+    #if file_name is None:
+    #    file_name = input("Please provide file name")
     #if file_name == '':
     current_dir = os.getcwd()
     #if os.path.exists(current_dir):
