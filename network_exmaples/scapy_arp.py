@@ -9,8 +9,22 @@
 ########################################################################################
 
 ### Lib import
+
+import os
 import sys
-from scapy.all import ARP, Ether, srp
+import time
+import platform
+
+try:
+    import netifaces
+    from scapy.all import ARP, Ether, srp
+except ModuleNotFoundError:
+    print('The libs are missing: trying to install ')
+    time.sleep(1)
+    os.system('pip3 install netifaces')
+    os.system('pip3 install scapy')
+    print('try running the script again.')
+    sys.exit(1)
 
 ## Variables :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -20,6 +34,19 @@ try:
 
 except IndexError:
     target_ip = input('Please provide the target ip: ')
+
+
+## Functions /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+
+def clean():
+    if platform.platform() == 'Linux':
+        os.system('clear')
+    
+    if platform.platform() == 'Windows':
+        os.system('cls')
+    
+
+
 
 # IP Address for the destination
 # create ARP packet
