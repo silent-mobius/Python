@@ -1,14 +1,6 @@
-#!/usr/bin/env python3
-########################################################################
-# created by: Pushtakio
-# purpose: practice arrays/lists
-# date: unknow
-# version: 1.0.1
-########################################################################
-
 var = 3
 arr = []
-per_arr=[1,2,3]
+per_arr = [1,2,3]
 
 while True:
 	if var > 0:
@@ -24,5 +16,5 @@ print(arr)
 arr.pop(1)
 arr.insert(1,per_arr)
 print(arr)
-a,b,c=arr
+a, b, c = arr
 print(b[1])
