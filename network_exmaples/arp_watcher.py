@@ -24,8 +24,8 @@ ip_mac = {}
 if os.path.exists('/var/cache'):
     arp_watcher_db_file = "/var/cache/arp_watcher.db"
 else:
-    os.mkdir('./.arp_watcher')
-    arp_watcher_db_file = "./.arp_watcher/arp_watcher.db"
+    os.mkdir('.arp_watcher')
+    arp_watcher_db_file = ".arp_watcher/arp_watcher.db"
 
 
 def sig_int_handler(signum,frame):
@@ -74,4 +74,4 @@ for line in f:
     ip_mac[ip] = mac
 
 
-sniff(prn = watch_arp, filter="arp", iface= sys.arv[1], store = 0)
+sniff(prn = watch_arp, filter="arp", iface= sys.argv[1], store = 0)
