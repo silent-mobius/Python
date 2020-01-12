@@ -42,3 +42,16 @@ def sig_int_handler(signum,frame):
         sys.exit(1)
 
 
+def watch_arp(pkt):
+    if pkt[ARP].op == 2:
+        print(pkt[ARP].hwsrc," ",pkt[ARP].psrc)
+
+        if ip_mac.get(pkt[ARP].psrc) == None:
+            print("[+] New Device:",pkt[ARP].hwsrc, pkt[ARP].psrc)
+            ip_mac[pkt[ARP].psrc] = pkt[ARP].hwsrc
+
+        elif ip_mac.get(pkt[ARP].psrc) and ip_mac[pkt[ARP].psrc] != pkt[ARP].hwsrc:
+            print(pkt[ARP].hwsrc," has new ip:",pkt[ARP].psrc,"(old :",ip_mac[pkt[ARP].psrc],")")
+
+            ip_mac[pkt[ARP].psrc] = pkt[ARP].hwsrc
+
