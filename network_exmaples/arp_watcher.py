@@ -55,3 +55,23 @@ def watch_arp(pkt):
 
             ip_mac[pkt[ARP].psrc] = pkt[ARP].hwsrc
 
+signal(SIGINT,sig_int_handler)
+
+if len(sys.argv) < 2 :
+    print("Not enough paramenters are given: ")
+    print(sys.argv[0], " <iface>")
+    sys.exit(0)
+
+try:
+    f = open(arp_watcher_db_file, "r")
+except IOError:
+    print("Cannot read the ",arp_watcher_db_file)
+    sys.exit(1)
+
+for line in f:
+    line.chomp()
+    (ip,mac) = line.split(" ")
+    ip_mac[ip] = mac
+
+
+sniff(prn = watch_arp, filter="arp", iface= sys.arv[1], store = 0)
