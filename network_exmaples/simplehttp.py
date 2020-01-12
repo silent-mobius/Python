@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 
 ######################################################
-#
-#
-#
-#
-#
+# created by : Pushtakio
+# purpose : simple http server based on python
+# date :
+# version: 1.0.0
 #######################################################
 
 import http.client
